@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
 import SearchParams from "./components/SearchParams";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import Details from "./components/Details";
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  useQueryClient,
+} from "@tanstack/react-query";
+
+// import fetchAll from "./fetchData/fetchAll";
 
 const App = () => {
   const queryClient = new QueryClient({
@@ -35,3 +41,12 @@ const App = () => {
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(React.createElement(App));
+
+//  const queryClient = useQueryClient();
+
+//   useEffect(() => {
+//     queryClient.prefetchQuery(['data'], fetchData);
+//   }, [queryClient]);
+
+//   return <DataComponent />;
+// };
